@@ -1,0 +1,189 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 36
+
+    signingConfigs {
+        debug {
+            storeFile file('../app/src/main/keys/ver_debug.jks')
+            storePassword 'bkuzn228'
+            keyAlias 'ver_debug0'
+            keyPassword 'bkuzn228'
+        }
+        release {
+            storeFile file('../app/src/main/keys/ver_release.jks')
+            storePassword 'bkuzn228'
+            keyAlias 'ver_release0'
+            keyPassword 'bkuzn228'
+        }
+    }
+
+    allprojects {
+        repositories {
+            google()
+            mavenCentral()
+            maven { url 'https://maven.aliyun.com/repository/jcenter' }
+            maven { url 'https://jitpack.io' }
+        }
+    }
+
+    namespace 'com.goldrp.game'
+
+    defaultConfig {
+        applicationId "com.bkuzn.game"
+        minSdk 26
+        targetSdk 36
+        versionCode 1005
+        versionName "0.1.1005"
+
+        multiDexEnabled true
+
+        ndk {
+            abiFilters 'arm64-v8a'
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-O3 -fexceptions"
+                arguments "-DANDROID_PAGE_SIZE=16384"
+            }
+        }
+    }
+
+    packagingOptions {
+        jniLibs {
+            excludes += ['META-INF/*']
+        }
+        resources {
+            excludes += ['META-INF/*']
+        }
+    }
+
+    ndkVersion '28.0.13004108'
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        ver_russia_release {
+            dimension "version"
+            versionNameSuffix "-beta"
+        }
+
+        ver_russia_debug {
+            dimension "version"
+            versionNameSuffix "-beta"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+            jniDebuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        all{
+            multiDexEnabled true
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def buildType = variant.buildType.name
+            outputFileName = "mobile-game-${buildType}.apk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lintOptions {
+        checkReleaseBuilds true
+        abortOnError true
+    }
+
+    buildFeatures {
+        buildConfig = true
+        prefab true
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation platform('com.google.firebase:firebase-bom:33.4.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
+    implementation 'com.google.firebase:firebase-crashlytics-ndk'
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-config'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation "com.google.android.material:material:1.9.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment:2.7.2'
+    implementation 'androidx.navigation:navigation-ui:2.7.2'
+    implementation 'androidx.core:core-ktx:1.17.0'
+    implementation 'androidx.databinding:viewbinding:9.2.0'
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.tonyodev.fetch2:xfetch2:3.1.6'
+    implementation 'androidx.tonyodev.fetch2okhttp:xfetch2okhttp:3.1.6'
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'org.ini4j:ini4j:0.5.4'
+    implementation 'com.github.amitshekhariitbhu:PRDownloader:1.0.2'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+    implementation("androidx.lifecycle:lifecycle-process:2.6.2")
+    implementation "com.joom.paranoid:paranoid-gradle-plugin:0.3.14"
+    implementation 'com.bytedance.android:shadowhook:2.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.google.android.gms:play-services-auth:20.7.0'
+    implementation 'com.tuyenmonkey:mkloader:1.4.0'
+
+    implementation 'com.github.Triggertrap:SeekArc:v1.1'
+    implementation 'com.liulishuo.filedownloader:library:1.7.7'
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+    implementation 'com.github.pedromassango:doubleClick:v1.1'
+    implementation "com.airbnb.android:lottie:6.6.0"
+    implementation 'com.github.Dimezis:BlurView:version-2.0.5'
+    //implementation "androidx.datastore:datastore-preferences:1.1.1"
+    //implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.31'
+}

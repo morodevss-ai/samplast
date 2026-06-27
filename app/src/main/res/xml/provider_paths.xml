@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Для внешнего хранилища (Environment.getExternalStorageDirectory()) -->
+    <external-path
+        name="external_files"
+        path="." />
+
+    <!-- Для getExternalFilesDir() -->
+    <external-files-path
+        name="external_files"
+        path="." />
+
+    <!-- Для кэша -->
+    <cache-path
+        name="cache"
+        path="." />
+
+    <!-- Для внешнего кэша -->
+    <external-cache-path
+        name="external_cache"
+        path="." />
+
+    <!-- Для корневой директории (если нужно) -->
+    <root-path
+        name="root"
+        path="." />
+
+    <!-- Специально для Download директории -->
+    <external-path
+        name="download"
+        path="Download/" />
+
+    <!-- Для Android/data/com.goldrp.game/ -->
+    <external-path
+        name="android_data"
+        path="Android/data/com.goldrp.game/" />
+
+    <external-path
+        name="android_data"
+        path="Android/data/com.bkuzn.game/" />
+</paths>

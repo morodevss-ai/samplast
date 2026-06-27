@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "635878504596",
+    "project_id": "softlauncher2",
+    "storage_bucket": "softlauncher2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635878504596:android:f563e95b4361b9106b1c81",
+        "android_client_info": {
+          "package_name": "com.bkuzn.game"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc-H_HRZOtp18-8hS12YzAz2xA94T53S4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635878504596:android:5820a13c4d8d66ec6b1c81",
+        "android_client_info": {
+          "package_name": "com.soft.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDc-H_HRZOtp18-8hS12YzAz2xA94T53S4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/keyboardStandard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:id="@+id/visibleZone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.45">
+
+            <ImageView
+                android:id="@+id/buttonHistoryDown"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="@dimen/_73sdp"
+                android:background="#a6000000"
+                android:gravity="center"
+                android:padding="@dimen/_1sdp"
+                android:src="@drawable/button_historyup"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/buttonHistoryUP"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:layout_gravity="bottom|right"
+                android:background="#a6000000"
+                android:gravity="center"
+                android:padding="@dimen/_1sdp"
+                android:src="@drawable/button_historydown"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.55"
+            android:background="#a6000000"
+            android:orientation="vertical">
+
+            <com.goldrp.game.common.views.KeyboardInputTextView
+                android:id="@+id/contentText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.24"
+                android:background="@drawable/keyboard_button_bg"
+                android:ems="10"
+                android:fontFamily="@font/arial_bold"
+                android:gravity="center_vertical"
+                android:inputType="text"
+                android:paddingLeft="@dimen/_35sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textColorHint="#59ffffff"
+                android:textCursorDrawable="@color/white"
+                android:textSize="@dimen/_17sdp" />
+
+            <FrameLayout
+                android:id="@+id/contentDesignDivisionLine"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.009"
+                android:background="#4e321f" />
+
+            <LinearLayout
+                android:id="@+id/contentButtonsLines"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/contentButtonsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.77"
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:weightSum="3">
+
+                    <LinearLayout
+                        android:id="@+id/contentButtonsListLineUp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="10" />
+
+                    <LinearLayout
+                        android:id="@+id/contentButtonsListLineMiddle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="9" />
+
+                    <LinearLayout
+                        android:id="@+id/contentButtonsListLineDown"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/_2sdp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="10.1">
+
+                        <ImageView
+                            android:id="@+id/contentButtonSymbolShift"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_keyboard_key_default_background"
+                            android:gravity="center"
+                            android:src="@drawable/button_shiftorup"
+                            android:textAllCaps="false"
+                            android:textColor="#ffffff"
+                            android:textSize="16dp" />
+
+                        <ImageView
+                            android:id="@+id/contentButtonSymbolBackspace"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:background="@drawable/selector_keyboard_key_default_background"
+                            android:gravity="center"
+                            android:src="@drawable/button_return"
+                            android:textAllCaps="false"
+                            android:textColor="#ffffff"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contentButtonsContainerFunctionSymbols"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:layout_weight="0.23"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/contentButtonSymbolSpec1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:fontFamily="@font/arial_bold"
+                        android:gravity="center"
+                        android:text="/"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_20sdp" />
+
+                    <Button
+                        android:id="@+id/contentButtonSymbolSpec2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:fontFamily="@font/arial_bold"
+                        android:gravity="center"
+                        android:text=","
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_20sdp" />
+
+                    <Button
+                        android:id="@+id/contentButtonSymbolSpecLang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="0.15"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:fontFamily="@font/arial_bold"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:minWidth="@dimen/_40sdp"
+                        android:singleLine="true"
+                        android:text="lang"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_14sdp" />
+
+                    <ImageView
+                        android:id="@+id/contentButtonSymbolSpace"
+                        android:layout_width="21dp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="0.5"
+                        android:background="@drawable/selector_keyboard_key_default_bg"
+                        android:gravity="center"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="18dp" />
+
+                    <Button
+                        android:id="@+id/contentButtonSymbolSpec3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:fontFamily="@font/arial_bold"
+                        android:gravity="center"
+                        android:text="?"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <Button
+                        android:id="@+id/contentButtonSymbolSpec4"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_weight="0.1"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:fontFamily="@font/arial_bold"
+                        android:gravity="center"
+                        android:text="!"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/_18sdp" />
+
+                    <ImageView
+                        android:id="@+id/contentButtonSymbolEnter"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2"
+                        android:background="@drawable/selector_keyboard_key_default_background"
+                        android:gravity="center"
+                        android:src="@drawable/button_send"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

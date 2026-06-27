@@ -1,0 +1,112 @@
+#pragma once
+
+class UISettings
+{
+public:
+    static void Initialize(const ImVec2& display_size);
+
+    /* font */
+    static float fontSize() { return m_fontSize; }
+    static float outlineSize() { return m_outlineSize; }
+
+    /* ////////////////// sizes ////////////////// */
+
+    /* widgets */
+    static float padding() { return m_padding; }
+
+    /* keyboard */
+    static ImVec2 keyboardPos() { return m_keyboardPos; }
+    static ImVec2 keyboardSize() { return m_keyboardSize; }
+    static float keyboardRowHeight() { return m_keyboardRowHeight; }
+
+    /* chat */
+    static ImVec2 chatPos() { return m_chatPos; }
+    static ImVec2 chatTabletPos() { return m_chatTabletPos; }
+    static ImVec2 chatSize() { return m_chatSize; }
+    static ImVec2 chatItemSize() { return m_chatItemSize; }
+    static int chatMaxMessages() { return m_chatMaxMessages; }
+
+    /* nametag */
+    static ImVec2 nametagBarSize() { return m_nametagBarSize; }
+
+    /* dialog */
+    static ImVec2 dialogButtonPanelSize() { return m_dialogButtonPanelSize; }
+    static ImVec2 dialogMinSize() { return m_dialogMinSize; }
+    static ImVec2 dialogMaxSize() { return m_dialogMaxSize; }
+    static float dialogTitleHeight() { return m_dialogTitleHeight; }
+    static float dialogListItemHeight() { return m_dialogListItemHeight; }
+
+    /* voice button */
+    static ImVec2 buttonVoicePos() { return m_buttonVoicePos; }
+    static ImVec2 buttonVoiceSize() { return m_buttonVoiceSize; }
+
+    /* ////////////////// colors ////////////////// */
+
+    /* button */
+    static ImColor buttonColor() { return m_buttonColor; }
+    static ImColor buttonFocusedColor() { return m_buttonFocusedColor; }
+
+    /* keyboard */
+    static ImColor keyboardBackgroundColor() { return m_keyboardBackgroundColor; }
+
+    /* dialog */
+    static ImColor dialogBackgroundColor() { return m_dialogBackgroundColor; }
+    static ImColor dialogTitleBackgroundColor() { return m_dialogTitleBackgroundColor; }
+
+private:
+    /* scaling */
+    static ImVec2 m_baseSize;
+    static ImVec2 m_scaleFactor;
+
+    /* font */
+    static float m_fontSize;
+    static float m_outlineSize;
+
+    /* ////////////////// pos & size ////////////////// */
+
+    /* Widgets */
+    static float m_padding;
+
+    /* keyboard */
+    static ImVec2 m_keyboardPos;
+    static ImVec2 m_keyboardSize;
+    static float m_keyboardRowHeight;
+
+    /* chat */
+    static ImVec2 m_chatPos;
+    static ImVec2 m_chatTabletPos;
+    static ImVec2 m_chatSize;
+    static ImVec2 m_chatItemSize;
+    static int m_chatDispMesssages;
+    static int m_chatMaxMessages;
+
+    /* nametag */
+    static ImVec2 m_nametagBarSize;
+
+    /* dialog */
+    static ImVec2 m_dialogButtonPanelSize;
+    static ImVec2 m_dialogMinSize;
+    static ImVec2 m_dialogMaxSize;
+    static float m_dialogTitleHeight;
+    static float m_dialogListItemHeight;
+
+    /* voice button */
+    static ImVec2 m_buttonVoicePos;
+    static ImVec2 m_buttonVoiceSize;
+
+    /* ////////////////// colors ////////////////// */
+
+    /* button */
+    static ImColor m_buttonColor;
+    static ImColor m_buttonFocusedColor;
+
+    /* splashscreen */
+
+
+    /* keyboard */
+    static ImColor m_keyboardBackgroundColor;
+
+    /* dialog */
+    static ImColor m_dialogBackgroundColor;
+    static ImColor m_dialogTitleBackgroundColor;
+};
