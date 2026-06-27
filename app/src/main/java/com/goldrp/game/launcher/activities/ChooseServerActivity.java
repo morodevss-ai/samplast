@@ -228,54 +228,25 @@ public class ChooseServerActivity extends BaseActivity {
     }
 
     private void setupClickListeners() {
+
         applyButtonAnimation(playCrimeBtn, new Runnable() {
             @Override
             public void run() {
-                if (serversArray != null && serversArray.length() > 0) {
-                    try {
-                        JSONObject server = serversArray.getJSONObject(0);
-                        selectedServerIp = server.getString("ip");
-                        selectedServerPort = server.getInt("port");
-                        saveServerToIni(selectedServerIp, selectedServerPort);
-                        launchGame();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+                launchGame();
             }
         });
 
         applyPulseAnimation(playGoldBtn, new Runnable() {
             @Override
             public void run() {
-                if (serversArray != null && serversArray.length() > 1) {
-                    try {
-                        JSONObject server = serversArray.getJSONObject(1);
-                        selectedServerIp = server.getString("ip");
-                        selectedServerPort = server.getInt("port");
-                        saveServerToIni(selectedServerIp, selectedServerPort);
-                        launchGame();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+                launchGame();
             }
         });
 
         applyObjectAnimatorAnimation(playRublBtn, new Runnable() {
             @Override
             public void run() {
-                if (serversArray != null && serversArray.length() > 2) {
-                    try {
-                        JSONObject server = serversArray.getJSONObject(2);
-                        selectedServerIp = server.getString("ip");
-                        selectedServerPort = server.getInt("port");
-                        saveServerToIni(selectedServerIp, selectedServerPort);
-                        launchGame();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
+                launchGame();
             }
         });
 
